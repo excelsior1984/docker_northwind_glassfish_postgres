@@ -1,0 +1,14 @@
+main site = http://localhost:8080/test6-1.0-SNAPSHOT/
+
+rest points = 
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.categories/1
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.customers/ALFKI
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.employees/1
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.orders/10248
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.products/1
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.region/1
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.shippers/1
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.suppliers/1
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.territories/01581
+http://localhost:8080/test6-1.0-SNAPSHOT/webresources/com.mycompany.test6.usstates/1
+

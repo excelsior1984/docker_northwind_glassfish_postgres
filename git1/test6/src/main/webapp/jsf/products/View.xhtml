@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProductsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProductsLabel_productId}"/>
+                    <h:outputText value="#{productsController.selected.productId}" title="#{bundle.ViewProductsTitle_productId}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_productName}"/>
+                    <h:outputText value="#{productsController.selected.productName}" title="#{bundle.ViewProductsTitle_productName}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_quantityPerUnit}"/>
+                    <h:outputText value="#{productsController.selected.quantityPerUnit}" title="#{bundle.ViewProductsTitle_quantityPerUnit}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_unitPrice}"/>
+                    <h:outputText value="#{productsController.selected.unitPrice}" title="#{bundle.ViewProductsTitle_unitPrice}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_unitsInStock}"/>
+                    <h:outputText value="#{productsController.selected.unitsInStock}" title="#{bundle.ViewProductsTitle_unitsInStock}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_unitsOnOrder}"/>
+                    <h:outputText value="#{productsController.selected.unitsOnOrder}" title="#{bundle.ViewProductsTitle_unitsOnOrder}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_reorderLevel}"/>
+                    <h:outputText value="#{productsController.selected.reorderLevel}" title="#{bundle.ViewProductsTitle_reorderLevel}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_discontinued}"/>
+                    <h:outputText value="#{productsController.selected.discontinued}" title="#{bundle.ViewProductsTitle_discontinued}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_categoryId}"/>
+                    <h:outputText value="#{productsController.selected.categoryId}" title="#{bundle.ViewProductsTitle_categoryId}"/>
+                    <h:outputText value="#{bundle.ViewProductsLabel_supplierId}"/>
+                    <h:outputText value="#{productsController.selected.supplierId}" title="#{bundle.ViewProductsTitle_supplierId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{productsController.destroyAndView}" value="#{bundle.ViewProductsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewProductsEditLink}"/>
+                <br />
+                <h:commandLink action="#{productsController.prepareCreate}" value="#{bundle.ViewProductsCreateLink}" />
+                <br />
+                <h:commandLink action="#{productsController.prepareList}" value="#{bundle.ViewProductsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewProductsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

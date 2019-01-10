@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListUsStatesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListUsStatesEmpty}" rendered="#{usStatesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{usStatesController.items.rowCount > 0}">
+                    <h:outputText value="#{usStatesController.pagination.pageFirstItem + 1}..#{usStatesController.pagination.pageLastItem + 1}/#{usStatesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{usStatesController.previous}" value="#{bundle.Previous} #{usStatesController.pagination.pageSize}" rendered="#{usStatesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{usStatesController.next}" value="#{bundle.Next} #{usStatesController.pagination.pageSize}" rendered="#{usStatesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{usStatesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsStatesTitle_stateId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stateId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsStatesTitle_stateName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stateName}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsStatesTitle_stateAbbr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stateAbbr}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUsStatesTitle_stateRegion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stateRegion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{usStatesController.prepareView}" value="#{bundle.ListUsStatesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{usStatesController.prepareEdit}" value="#{bundle.ListUsStatesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{usStatesController.destroy}" value="#{bundle.ListUsStatesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{usStatesController.prepareCreate}" value="#{bundle.ListUsStatesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListUsStatesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

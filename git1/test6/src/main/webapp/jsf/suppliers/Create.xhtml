@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSuppliersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_supplierId}" for="supplierId" />
+                    <h:inputText id="supplierId" value="#{suppliersController.selected.supplierId}" title="#{bundle.CreateSuppliersTitle_supplierId}" required="true" requiredMessage="#{bundle.CreateSuppliersRequiredMessage_supplierId}"/>
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_companyName}" for="companyName" />
+                    <h:inputText id="companyName" value="#{suppliersController.selected.companyName}" title="#{bundle.CreateSuppliersTitle_companyName}" required="true" requiredMessage="#{bundle.CreateSuppliersRequiredMessage_companyName}"/>
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_contactName}" for="contactName" />
+                    <h:inputText id="contactName" value="#{suppliersController.selected.contactName}" title="#{bundle.CreateSuppliersTitle_contactName}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_contactTitle}" for="contactTitle" />
+                    <h:inputText id="contactTitle" value="#{suppliersController.selected.contactTitle}" title="#{bundle.CreateSuppliersTitle_contactTitle}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{suppliersController.selected.address}" title="#{bundle.CreateSuppliersTitle_address}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_city}" for="city" />
+                    <h:inputText id="city" value="#{suppliersController.selected.city}" title="#{bundle.CreateSuppliersTitle_city}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_region}" for="region" />
+                    <h:inputText id="region" value="#{suppliersController.selected.region}" title="#{bundle.CreateSuppliersTitle_region}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_postalCode}" for="postalCode" />
+                    <h:inputText id="postalCode" value="#{suppliersController.selected.postalCode}" title="#{bundle.CreateSuppliersTitle_postalCode}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_country}" for="country" />
+                    <h:inputText id="country" value="#{suppliersController.selected.country}" title="#{bundle.CreateSuppliersTitle_country}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_phone}" for="phone" />
+                    <h:inputText id="phone" value="#{suppliersController.selected.phone}" title="#{bundle.CreateSuppliersTitle_phone}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_fax}" for="fax" />
+                    <h:inputText id="fax" value="#{suppliersController.selected.fax}" title="#{bundle.CreateSuppliersTitle_fax}" />
+                    <h:outputLabel value="#{bundle.CreateSuppliersLabel_homepage}" for="homepage" />
+                    <h:inputText id="homepage" value="#{suppliersController.selected.homepage}" title="#{bundle.CreateSuppliersTitle_homepage}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{suppliersController.create}" value="#{bundle.CreateSuppliersSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{suppliersController.prepareList}" value="#{bundle.CreateSuppliersShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSuppliersIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

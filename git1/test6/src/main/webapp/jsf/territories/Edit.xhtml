@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTerritoriesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTerritoriesLabel_territoryId}" for="territoryId" />
+                    <h:inputText id="territoryId" value="#{territoriesController.selected.territoryId}" title="#{bundle.EditTerritoriesTitle_territoryId}" required="true" requiredMessage="#{bundle.EditTerritoriesRequiredMessage_territoryId}"/>
+                    <h:outputLabel value="#{bundle.EditTerritoriesLabel_territoryDescription}" for="territoryDescription" />
+                    <h:inputText id="territoryDescription" value="#{territoriesController.selected.territoryDescription}" title="#{bundle.EditTerritoriesTitle_territoryDescription}" required="true" requiredMessage="#{bundle.EditTerritoriesRequiredMessage_territoryDescription}"/>
+                    <h:outputLabel value="#{bundle.EditTerritoriesLabel_regionId}" for="regionId" />
+                    <h:selectOneMenu id="regionId" value="#{territoriesController.selected.regionId}" title="#{bundle.EditTerritoriesTitle_regionId}" required="true" requiredMessage="#{bundle.EditTerritoriesRequiredMessage_regionId}">
+                        <f:selectItems value="#{regionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{territoriesController.update}" value="#{bundle.EditTerritoriesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTerritoriesViewLink}"/>
+                <br />
+                <h:commandLink action="#{territoriesController.prepareList}" value="#{bundle.EditTerritoriesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTerritoriesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
